@@ -75,14 +75,13 @@ def newData():
 
 def mineNewBlock(blockchainPath = 'testtest.csv'):
     blockchain = readBlockchain(blockchainPath)
-    txData = newData()
     timestamp = time.time()
     proof = 0
     newBlockFound = False
     print('Mining a block...')
     while not newBlockFound:    
         #print("Trying new block proof...")
-        newBlockAttempt = generateNextBlock(blockchain, txData, timestamp, proof)
+        newBlockAttempt = generateNextBlock(blockchain, newData(), timestamp, proof)
         if newBlockAttempt.currentHash[0:1] == '5':
             stopTime = time.time()
             timer = stopTime - timestamp
@@ -94,8 +93,9 @@ def mineNewBlock(blockchainPath = 'testtest.csv'):
     blockchain.append(newBlockAttempt)
     writeBlockchain(blockchain)
 
-def mine(blocksToMine = 10):
+def mine(blocksToMine):
     for _ in range(blocksToMine):
         mineNewBlock()
 
-print (mine())
+# amount = int(input('Enter an integer amount of blocks to mine'))
+# mine(amount)
