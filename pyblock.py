@@ -98,4 +98,4 @@ def mine(blocksToMine):
         mineNewBlock()
 
 # amount = int(input('Enter an integer amount of blocks to mine'))
-mine(1000)
+mine(500)

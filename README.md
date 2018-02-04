@@ -1,2 +1,3 @@
 # pyblock
-Alternative blockchain solution
+Simple blockchain app with Python
+
